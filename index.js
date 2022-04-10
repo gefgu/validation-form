@@ -9,7 +9,7 @@
     if(!emailInput.checkValidity()) {
       emailInput.classList.add("invalid");
       emailInput.addEventListener("input", () => {
-        if(emailInput.checkValidity()) {
+        if(emailInput.checkValidity() && emailInput.value !== "") {
           emailInput.classList.remove("invalid");
         } else {
           emailInput.classList.add("invalid");
