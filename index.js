@@ -29,4 +29,8 @@
   const countryInput = document.querySelector("#country");
   countryInput.pattern = "[a-zA-Z]+";
   addValidationBehavior("country", "*Add a valid country!");
+
+  const zipInput = document.querySelector("#zip");
+  zipInput.pattern = "^[0-9]{5}(:?-?[0-9]{4})$";
+  addValidationBehavior("zip", "*Add a valid zip code!");
 })();
