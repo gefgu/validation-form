@@ -22,3 +22,9 @@ input.submit {
 input.invalid {
   border: 1px solid red;
 }
+
+span {
+  color: red;
+  font-size: .8rem;
+  margin-bottom: -8px;
+}
