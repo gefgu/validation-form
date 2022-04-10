@@ -18,3 +18,7 @@ label {
 input.submit {
   margin-top: 32px;
 }
+
+input.invalid {
+  border: 1px solid red;
+}
