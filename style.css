@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 16px;
+}
+
+input.submit {
+  margin-top: 32px;
+}
