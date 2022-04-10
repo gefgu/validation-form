@@ -5,16 +5,20 @@
   });
 
   const emailInput = document.querySelector("#email");
+  const emailMessageError = document.querySelector("#email-error");
   emailInput.addEventListener("blur", () => {
-    if(!emailInput.checkValidity()) {
+    if (!emailInput.checkValidity()) {
       emailInput.classList.add("invalid");
+      emailMessageError.textContent = "*Enter a valid email!";
       emailInput.addEventListener("input", () => {
-        if(emailInput.checkValidity() && emailInput.value !== "") {
+        if (emailInput.checkValidity() && emailInput.value !== "") {
           emailInput.classList.remove("invalid");
+          emailMessageError.textContent = "";
         } else {
           emailInput.classList.add("invalid");
+          emailMessageError.textContent = "*Enter a valid email!";
         }
       });
     }
-  })
+  });
 })();
