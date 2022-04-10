@@ -33,4 +33,13 @@
   const zipInput = document.querySelector("#zip");
   zipInput.pattern = "^[0-9]{5}(:?-?[0-9]{4})$";
   addValidationBehavior("zip", "*Add a valid zip code!");
+
+  const passwordInput = document.querySelector("#password");
+  passwordInput.pattern =
+    "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,}$";
+  addValidationBehavior(
+    "password",
+    "Your password needs: Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character"
+  );
+  
 })();
