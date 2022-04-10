@@ -4,24 +4,6 @@
     e.preventDefault();
   });
 
-  const emailInput = document.querySelector("#email");
-  const emailMessageError = document.querySelector("#email-error");
-  emailInput.addEventListener("blur", () => {
-    if (!emailInput.checkValidity()) {
-      emailInput.classList.add("invalid");
-      emailMessageError.textContent = "*Enter a valid email!";
-      emailInput.addEventListener("input", () => {
-        if (emailInput.checkValidity() && emailInput.value !== "") {
-          emailInput.classList.remove("invalid");
-          emailMessageError.textContent = "";
-        } else {
-          emailInput.classList.add("invalid");
-          emailMessageError.textContent = "*Enter a valid email!";
-        }
-      });
-    }
-  });
-
   const addValidationBehavior = (inputID, validationMessage) => {
     const inputField = document.querySelector(`#${inputID}`);
     const inputMessageError = document.querySelector(`#${inputID}-error`);
@@ -41,6 +23,8 @@
       }
     });
   };
+
+  addValidationBehavior("email", "*Add a valid email!");
 
   const countryInput = document.querySelector("#country");
   countryInput.pattern = "[a-zA-Z]+";
