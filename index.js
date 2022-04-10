@@ -21,4 +21,28 @@
       });
     }
   });
+
+  const addValidationBehavior = (inputID, validationMessage) => {
+    const inputField = document.querySelector(`#${inputID}`);
+    const inputMessageError = document.querySelector(`#${inputID}-error`);
+    inputField.addEventListener("blur", () => {
+      if (!inputField.checkValidity() || inputField.value === "") {
+        inputField.classList.add("invalid");
+        inputMessageError.textContent = validationMessage;
+        inputField.addEventListener("input", () => {
+          if (inputField.checkValidity() && inputField.value !== "") {
+            inputField.classList.remove("invalid");
+            inputMessageError.textContent = "";
+          } else {
+            inputField.classList.add("invalid");
+            inputMessageError.textContent = validationMessage;
+          }
+        });
+      }
+    });
+  };
+
+  const countryInput = document.querySelector("#country");
+  countryInput.pattern = "[a-zA-Z]+";
+  addValidationBehavior("country", "*Add a valid country!");
 })();
