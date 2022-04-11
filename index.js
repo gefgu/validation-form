@@ -2,6 +2,15 @@
   const form = document.querySelector("form");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
+    const formData = new FormData(form);
+    let isEmpty = false;
+    for (data of formData.entries()) {
+      if(data[1].trim() === "") {
+        isEmpty = true;
+        break;
+      }
+    };
+    
   });
 
   const addValidationBehavior = (inputID, validationMessage) => {
@@ -61,4 +70,7 @@
       });
     }
   });
+
+  
+
 })();
