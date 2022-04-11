@@ -10,7 +10,13 @@
         break;
       }
     };
-    
+    document.querySelectorAll("form input").forEach(element => {
+      console.log(element);
+      if(element.nodeName === "INPUT") {
+        element.focus();
+      }
+    })
+    document.activeElement.blur();
   });
 
   const addValidationBehavior = (inputID, validationMessage) => {
