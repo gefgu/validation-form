@@ -36,10 +36,29 @@
 
   const passwordInput = document.querySelector("#password");
   passwordInput.pattern =
-    "(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$";
+    "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
   addValidationBehavior(
     "password",
     "Your password needs: Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character"
   );
-  
+
+  const confirmPasswordInput = document.querySelector("#confirm-password");
+  const confirmPasswordMessage = document.querySelector(
+    "#confirm-password-error"
+  );
+  confirmPasswordInput.addEventListener("blur", () => {
+    if (confirmPasswordInput.value !== passwordInput.value) {
+      confirmPasswordInput.classList.add("invalid");
+      confirmPasswordMessage.textContent = "Your passwords don't match!";
+      confirmPasswordInput.addEventListener("input", () => {
+        if (confirmPasswordInput.value === passwordInput.value) {
+          confirmPasswordInput.classList.remove("invalid");
+          confirmPasswordMessage.textContent = "";
+        } else {
+          confirmPasswordInput.classList.add("invalid");
+          confirmPasswordMessage.textContent = "Your passwords don't match!";
+        }
+      });
+    }
+  });
 })();
