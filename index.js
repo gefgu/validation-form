@@ -36,7 +36,7 @@
 
   const passwordInput = document.querySelector("#password");
   passwordInput.pattern =
-    "^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,}$";
+    "(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$";
   addValidationBehavior(
     "password",
     "Your password needs: Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character"
