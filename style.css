@@ -7,6 +7,10 @@ body {
   font-family: sans-serif;
 }
 
+form {
+  width: 400px;
+}
+
 fieldset {
   display: flex;
   flex-direction: column;
