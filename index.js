@@ -5,17 +5,20 @@
     const formData = new FormData(form);
     let isEmpty = false;
     for (data of formData.entries()) {
-      if(data[1].trim() === "") {
+      if (data[1].trim() === "") {
         isEmpty = true;
         break;
       }
-    };
-    document.querySelectorAll("form input").forEach(element => {
+    }
+    if (!isEmpty) {
+      alert("Successful Form Submit!");
+    }
+    document.querySelectorAll("form input").forEach((element) => {
       console.log(element);
-      if(element.nodeName === "INPUT") {
+      if (element.nodeName === "INPUT") {
         element.focus();
       }
-    })
+    });
     document.activeElement.blur();
   });
 
@@ -76,7 +79,4 @@
       });
     }
   });
-
-  
-
 })();
